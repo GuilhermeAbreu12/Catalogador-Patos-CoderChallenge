@@ -11,16 +11,25 @@ from cores import *
 # Variáveis e funções iniciais
 
 pato = {}
-pato['droneCodigo'] = choice([
-    'abc123', 'def456', 'ghi789', 'jkl123', 'mno456', 'pqr789'
-])
-# Marca do drone
-# Fabricante do drone
-# País de origem do drone
+pato['bpm'] = 'não identificado'
+pato['superpoder'] = 'não identificado'
+
+patosCatalogados = []
+
+drone = {}
+if nomesDrones:
+    drone['codigo'] = choice(nomesDrones)
+else:
+    drone['codigo'] = 'SEM-DRONES'
+drone['nacionalidade'] = choice(nomesPaises)
+drone['saude'] = 100
+
 divisao = '============================================'
 cidade = 'DSIN City'
-droneSaude = 100
 escolha = 0
+exibiu = False
+venceu = False
+
 def DetectarPatos():
     global pato
     def CriarPato():
