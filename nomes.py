@@ -45,3 +45,8 @@ nomesPatos = [
     "Quackthor", "Lord Plumage", "Sir Puddlebeak", "Dr. Quacktavius", "Ducanator", "Feathergeist", "Barão do Brejo", "Capitão Penafria", "Almirante Quackwell", "Professor Patozônio", "Ducky McSteam", "Patoquântico", "O Ornitron", "Vaporwing", "Count Duckvlad", "Major Plumaflame", "Archibald Quacksworth", "Mestre Plumaluz", "Duckborg XIX", "Plumachron", "Pato Supremo de Andromeda", "Quackarion", "Visconde Penasombra", "Sir Nebulapato", "Patozord Alfa", "Comandante Penáltron", "Lord Quacktus", "Dr. Pluma Cósmica", "General Puddlecore", "Pato Ômega"
 ]
 
+nomesPoderes = [
+    "Controle do Vapor Etéreo", "Visão Quackrônica", "Rajada Sônica de Plumas", "Manipulação Temporal das Águas",
+    "Telepatia Aquática", "Campo de Força Penáceo", "Regeneração Plumal", "Explosão Quântica de Penas", "Mergulho Dimensional", "Chuva Ácida Espiritual", "Grito Supersônico Quacktral", "Controle de Pântanos", "Teletransporte por Espelhos d’Água", "Hipnose Aviária", "Voo Anti-Gravitacional", "Camuflagem Nebulosa", "Domínio das Correntes do Éter", "Transformação em Névoa", "Emissão de Luz Ancestral", "Toque Criogênico", "Sopro de Fogo Celestial", "Invocação dos Ecos do Brejo", "Domínio da Eletricidade Líquida", "Mutação Hidrodinâmica", "Projeção Astral de Plumas", "Controle de Enxames de Patos", "Canção Cósmica", "Giro Quacktrônico", "Mimetismo Universal", "Reversão da Gravidade Local"
+]
+
