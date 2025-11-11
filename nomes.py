@@ -52,3 +52,4 @@ nomesPoderes = [
 
 nomesDrones = ['MatadorDePato 2.0', 'DuckDestroyer XP', 'DuckHunter 3000', 'DuckSweeper L9', 'Cleber']
 
+nomesPaises = ['Argentina', 'Brasil', 'Canadá', 'Dinamarca', 'Estados Unidos', 'Filipinas', 'Guatemala', 'Honduras', 'Itália', 'Jamaica', 'Portugal', 'Rússia', 'Suécia']
