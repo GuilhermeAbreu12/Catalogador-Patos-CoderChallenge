@@ -62,6 +62,7 @@ def DetectarPatos():
         # Precisão do drone. Se for dos EUA, converte de jardas para cm ou m
 
     def ProvocarPato():
+        global pato
         # Mensagem e efeitos de fazer isso
         print(choice(frasesProvocar))
         
@@ -87,6 +88,11 @@ def DetectarPatos():
                 print(f'Saúde do seu drone: {drone["saude"]}%')
 
         DroneAtacado(randint(1, 100))
+
+        # Habilidade especial do Pato
+        pato['superpoder'] = choice(nomesPoderes)
+        print('Superpoder claramente identificado.')
+        CatalogarPato()
     
     def AproximarPato():
         # Coletar as Bmp
