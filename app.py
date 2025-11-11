@@ -95,10 +95,12 @@ def DetectarPatos():
         CatalogarPato()
     
     def AproximarPato():
+        global pato
         # Coletar as Bmp
         print(choice(frasesAproximar)) # pega uma aleatória
-        pato['bpm'] = randint(50, 200) # Número aleatório entre 0 e 100
-        print('Bpm coletadas')
+        pato['bpm'] = randint(1, 200) # Número aleatório entre 1 e 200
+        print('\nBpm coletadas')
+        CatalogarPato()
 
     def PatoEncontrado():
         aproximar = ''
