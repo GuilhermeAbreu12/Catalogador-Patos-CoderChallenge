@@ -13,6 +13,12 @@ from cores import *
 pato = {}
 pato['bpm'] = 'não identificado'
 pato['superpoder'] = 'não identificado'
+def ZerarPato():
+    global pato
+    pato = {}
+    pato['bpm'] = 'não identificado'
+    pato['superpoder'] = 'não identificado'
+    return pato
 
 patosCatalogados = []
 
