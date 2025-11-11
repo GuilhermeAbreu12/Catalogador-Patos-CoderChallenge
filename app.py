@@ -1,8 +1,15 @@
-from cidades import listaCidades
+import sys
 from frases import frasesProvocar
 from frases import frasesAproximar
+from nomes import nomesCidades
+from nomes import nomesPatos
+from nomes import nomesPoderes
+from nomes import nomesDrones
+from nomes import nomesPaises
 from random import *
+from cores import *
 # Variáveis e funções iniciais
+
 pato = {}
 pato['droneCodigo'] = choice([
     'abc123', 'def456', 'ghi789', 'jkl123', 'mno456', 'pqr789'
