@@ -41,3 +41,7 @@ nomesCidades = [
     'Santiago - Chile'
 ]
 
+nomesPatos = [
+    "Quackthor", "Lord Plumage", "Sir Puddlebeak", "Dr. Quacktavius", "Ducanator", "Feathergeist", "Barão do Brejo", "Capitão Penafria", "Almirante Quackwell", "Professor Patozônio", "Ducky McSteam", "Patoquântico", "O Ornitron", "Vaporwing", "Count Duckvlad", "Major Plumaflame", "Archibald Quacksworth", "Mestre Plumaluz", "Duckborg XIX", "Plumachron", "Pato Supremo de Andromeda", "Quackarion", "Visconde Penasombra", "Sir Nebulapato", "Patozord Alfa", "Comandante Penáltron", "Lord Quacktus", "Dr. Pluma Cósmica", "General Puddlecore", "Pato Ômega"
+]
+
