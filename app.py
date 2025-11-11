@@ -39,12 +39,23 @@ venceu = False
 def DetectarPatos():
     global pato
     def CriarPato():
-        # Aqui tudo que será personalizado de pato para pato e ataque para ataque
+        global drone, pato
+        # Aqui tudo que será personalizado desde a criação
+        pato['nome'] = choice(nomesPatos)
         pato['status'] = choice(['desperto', 'em transe', 'em hibernação profunda'])
+        pato['numeroMutacoes'] = randint(1, 10) # Quantidade de mutações
+
         # Altura e peso do Pato
-        # Quantidade de mutações
-        # Se estiver desperto, Habilidade especial do Pato
         # Se o país do drone for os EUA, converte de pés e libras para cm e g
+        if drone['nacionalidade'] == 'Estados Unidos':
+            patoAlturaAmericana = round(uniform(3.00, 13.00), 2) # Pés
+            pato['altura'] = f'{patoAlturaAmericana * 30.48} cm' # cm
+
+            patoPesoAmericano = randint(4, 14) # Libra
+            pato['peso'] = f'{patoPesoAmericano * 453.592} gramas' # gramas
+        else:
+            pato['altura'] = f'{randint(91, 396)} cm'
+            pato['peso'] = f'{randint(1814, 6350)} gramas'
         # Coordenadas GPS.
         # Lugar de referência se tiver
         # Localização do pato = cidade atual - país da cidade + coordenadas GPS
