@@ -64,13 +64,29 @@ def DetectarPatos():
     def ProvocarPato():
         # Mensagem e efeitos de fazer isso
         print(choice(frasesProvocar))
-        dano = randint(1, 100)
-        droneSaude -= dano
-        if droneSaude <= 0:
-            print("O pato destruiu seu drone...")
-            pass # em teoria fecha o programa, na prática...
-        print(f'Saúde do seu drone: {droneSaude}%')
+        
+        def DroneAtacado(dano):
+            global drone, nomesDrones
 
+            drone['saude'] -= dano
+            if drone['saude'] <= 0: # Drone destruído
+                print("O pato destruiu seu drone...")
+                # Cria um novo drone
+                if isinstance(nomesDrones, list) and len(nomesDrones) > 1:
+                    if drone['codigo'] in nomesDrones:
+                        nomesDrones.remove(drone['codigo'])
+                    if nomesDrones:
+                        drone['codigo'] = choice(nomesDrones)
+                        drone['saude'] = 100
+                    else:
+                        Perdeu('Sem drones')
+                else:
+                    Perdeu('Sem drones')
+            else: # Drone continua
+                print('Drone atacado pelo pato...')
+                print(f'Saúde do seu drone: {drone["saude"]}%')
+
+        DroneAtacado(randint(1, 100))
     
     def AproximarPato():
         # Coletar as Bmp
