@@ -103,17 +103,19 @@ def DetectarPatos():
         CatalogarPato()
 
     def PatoEncontrado():
-        aproximar = ''
-        
-        while aproximar != 'S' and aproximar != 'N':
+        respostaInvalida = True
+        while respostaInvalida == True:
             aproximar = str(input('Deseja se aproximar? [S/N]: '))
-        
-        if aproximar == 'S':
+            respostaInvalida = aproximar != 'S' and aproximar != 's' and aproximar != 'N' and aproximar != 'n'
+
+        if aproximar == 'S' or aproximar == 's':
             print(f"Drone se aproxima do pato que está {pato['status']}...")
             if pato['status'] == 'desperto':
                 ProvocarPato()
             else:
                 AproximarPato()
+        else: pass
+
 
     # Chance de 50% de ter um pato
     # Se tiver, escolhe um pato aleatório da lista de patos
