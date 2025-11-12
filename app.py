@@ -116,6 +116,34 @@ def DetectarPatos():
                 AproximarPato()
         else: pass
 
+    def CatalogarPato():
+        global pato, drone, patosCatalogados
+        print('\nPato catalogado.')
+        print(divisao)
+        print(f'Nome pato: {pato["nome"]}')         
+        print(f'Status: {pato["status"]}')
+        print(f'Bpm: {pato["bpm"]}')
+        print(f'Altura: {pato["altura"]}')
+        print(f'Peso: {pato["peso"]}')
+        print(f'Número de mutações: {pato["numeroMutacoes"]}')
+        print(f'Superpoder: {pato["superpoder"]}')
+        print(f'Código do drone: {drone["codigo"]}')
+        print(f'Nacionalidade do drone: {drone["nacionalidade"]}')
+        print(divisao)
+
+        novoPatoCatalogado = {}
+        novoPatoCatalogado['nome'] = pato['nome']
+        novoPatoCatalogado['status'] = pato['status']
+        novoPatoCatalogado['bpm'] = pato['bpm']
+        novoPatoCatalogado['altura'] = pato['altura']
+        novoPatoCatalogado['peso'] = pato['peso']
+        novoPatoCatalogado['numeroMutacoes'] = pato['numeroMutacoes']
+        novoPatoCatalogado['superpoder'] = pato['superpoder']
+        novoPatoCatalogado['droneCodigo'] = drone['codigo']
+        novoPatoCatalogado['droneNacionalidade'] = drone['nacionalidade']
+        patosCatalogados.append(novoPatoCatalogado)
+        novoPatoCatalogado = {}
+        ZerarPato()
 
     # Chance de 50% de ter um pato
     # Se tiver, escolhe um pato aleatório da lista de patos
