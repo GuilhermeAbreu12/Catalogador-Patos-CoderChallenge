@@ -161,7 +161,23 @@ def DetectarPatos():
     else:
         print('Não há patos aqui.')
         print('Pense na cidade do seu próximo destino.')
+def ExibirPatosCatalogados():
+    global exibiu
+    # Essa é a próxima função, mostrar de forma bonita
+    for patoAtual in patosCatalogados:
+        print(divisao)        
+        print(f'NOME: {patoAtual["nome"]}')
+        print(f'STATUS: {patoAtual["status"]}')
+        print(f'BATIDAS POR MINUTO: {patoAtual["bpm"]}')
+        print(f'ALTURA: {patoAtual["altura"]}')
+        print(f'PESO: {patoAtual["peso"]}')
+        print(f'NÚMERO DE MUTAÇÕES: {patoAtual["numeroMutacoes"]}')
+        print(f'SUPERPODER: {patoAtual["superpoder"]}')
+        print(f'CÓDIGO DO DRONE: {patoAtual["droneCodigo"]}')
+        print(f'NACIONALIDADE DO DRONE: {patoAtual["droneNacionalidade"]}')
+        print(divisao)
 
+    exibiu = True
 
 def EscolherCidade(listaCidades):
     global cidade, escolha
