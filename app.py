@@ -148,8 +148,11 @@ def DetectarPatos():
     # Chance de 50% de ter um pato
     # Se tiver, escolhe um pato aleatório da lista de patos
     # Ativa a função para patos
-    temPato = choice([True, False])
-    
+    if escolha != 5:
+        temPato = choice([True, False])
+    else:
+        temPato = False
+
     if temPato:
         print("Alerta: Pato primordial encontrado!")
         CriarPato()
