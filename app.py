@@ -180,20 +180,24 @@ def ExibirPatosCatalogados():
     exibiu = True
 
 def EscolherCidade(listaCidades):
-    global cidade, escolha
-    escolha = 0
+    global cidade, escolha, exibiu, venceu
+    # escolha = 0
+    cidade1 = ''
+    cidade2 = ''
+    cidade3 = ''
+    cidade4 = ''
 
-    cidade1 = choice(listaCidades)
-    listaCidades.remove(cidade1)
+    while(
+            cidade1 == cidade2 or cidade1 == cidade3 or cidade1 == cidade4 
+            or cidade2 == cidade3 or cidade2 == cidade4 
+            or cidade3 == cidade4 or 
+            cidade1 == cidade or cidade2 == cidade or cidade3 == cidade or cidade4 == cidade
+        ):
+        cidade1 = choice(listaCidades)
+        cidade2 = choice(listaCidades)
+        cidade3 = choice(listaCidades)
+        cidade4 = choice(listaCidades)
 
-    cidade2 = choice(listaCidades)
-    listaCidades.remove(cidade2)
-    
-    cidade3 = choice(listaCidades)
-    listaCidades.remove(cidade3)
-    
-    cidade4 = choice(listaCidades)
-    listaCidades.remove(cidade4)
 
     print(f'{divisao}\n>> Cidade atual: {cidade}')
     
@@ -209,15 +213,27 @@ def EscolherCidade(listaCidades):
             print('>> Você digitou um valor inválido, tente novamente.\n')
 
     # Cadastrar a cidade corretamente
+    if cidade != 'DSIN City' and not exibiu:
+        if cidade in listaCidades:
+            listaCidades.remove(cidade) # Cidade anterior à escolhida é excluída.
+    
     match escolha:
         case 1:
             cidade = cidade1
+            exibiu = False
         case 2:
             cidade = cidade2
+            exibiu = False
         case 3:
             cidade = cidade3
+            exibiu = False
         case 4:
             cidade = cidade4
+            exibiu = False
+        case 5:
+            cidade = cidade
+            ExibirPatosCatalogados()
+    
 
 # Programa rodando
 
