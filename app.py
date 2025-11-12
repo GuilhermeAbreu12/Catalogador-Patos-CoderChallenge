@@ -220,10 +220,15 @@ def EscolherCidade(listaCidades):
         print(f'{green}[4]{white} {cidade4}')
         print(f'{yellow}[5]{white} Ver Patos Catalogados')
         
-        escolha = int(input('\nDigite seu destino (número inteiro de 1 a 4): '))
+        try:
+            escolha = int(input('\nDigite seu destino (número inteiro de 1 a 5): '))
+        except ValueError:
+            print('>> Você digitou um valor inválido, tente novamente.\n')
+            continue
+
         if escolha == -1:
             break
-        if escolha < 1 or escolha > 4:
+        if escolha < 1 or escolha > 5:
             print('>> Você digitou um valor inválido, tente novamente.\n')
 
     # Cadastrar a cidade corretamente
