@@ -37,7 +37,6 @@ exibiu = False
 venceu = False
 
 def DetectarPatos():
-    global pato
     def CriarPato():
         global drone, pato
         # Aqui tudo que será personalizado desde a criação
@@ -154,13 +153,20 @@ def DetectarPatos():
         temPato = False
 
     if temPato:
-        print("Alerta: Pato primordial encontrado!")
+        print(f"{yellow}Alerta: Pato primordial encontrado!{white}")
         CriarPato()
-        print(f"Status: {pato['status']}")
+        if pato['status'] == 'desperto':
+            color = red
+        elif pato['status'] == 'em transe':
+            color = yellow
+        else: color = blue
+
+        print(f"Status: {color}{pato['status']}{white}")
         PatoEncontrado()
     else:
-        print('Não há patos aqui.')
-        print('Pense na cidade do seu próximo destino.')
+        print(f'{red}Não há patos aqui.{white}')
+        # remover a cidade
+
 def ExibirPatosCatalogados():
     global exibiu
     # Essa é a próxima função, mostrar de forma bonita
@@ -199,12 +205,20 @@ def EscolherCidade(listaCidades):
         cidade4 = choice(listaCidades)
 
 
-    print(f'{divisao}\n>> Cidade atual: {cidade}')
+    print(f'{divisao}\n>> Cidade atual: {green}{cidade}{white}')
     
     if cidade != 'DSIN City':
-        DetectarPatos()    
-    while escolha < 1 or escolha > 4:
-        print(f'[1] {cidade1}\n[2] {cidade2}\n[3] {cidade3}\n[4] {cidade4}')
+        DetectarPatos()
+    escolha = 0
+    
+    while escolha < 1 or escolha > 5:
+        print(f'{green}Selecione seu próximo destino')
+        print(f'{yellow}[-1]{white} Sair')
+        print(f'{green}[1]{white} {cidade1}')
+        print(f'{green}[2]{white} {cidade2}')
+        print(f'{green}[3]{white} {cidade3}')
+        print(f'{green}[4]{white} {cidade4}')
+        print(f'{yellow}[5]{white} Ver Patos Catalogados')
         
         escolha = int(input('\nDigite seu destino (número inteiro de 1 a 4): '))
         if escolha == -1:
@@ -237,11 +251,9 @@ def EscolherCidade(listaCidades):
 
 # Programa rodando
 
-print(listaCidades)
 print('\nOlá soldado!')
-print(f'Esse é o seu drone: {pato["droneCodigo"]}')
+print(f'Esse é o seu drone: {green}{drone["codigo"]}{white}, você tem direito a mais {len(nomesDrones) - 1} drones.')
 print('Sua missão é catalogar patos primordiais. Esse mundo está cheio deles, mas você tem que encontrá-los.')
-print('Escolha a cidade de destino:')
 
 while escolha != -1:
     EscolherCidade(listaCidades)
