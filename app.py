@@ -35,6 +35,7 @@ cidade = 'DSIN City'
 escolha = 0
 exibiu = False
 venceu = False
+patosPulados = 0
 
 def DetectarPatos():
     def CriarPato():
@@ -102,6 +103,7 @@ def DetectarPatos():
         CatalogarPato()
 
     def PatoEncontrado():
+        global patosPulados
         respostaInvalida = True
         while respostaInvalida == True:
             aproximar = str(input('Deseja se aproximar? [S/N]: '))
@@ -113,7 +115,10 @@ def DetectarPatos():
                 ProvocarPato()
             else:
                 AproximarPato()
-        else: pass
+        else:
+            patosPulados += 1
+            if patosPulados >= 3:
+                Perdeu('Foi covarde')
 
     def CatalogarPato():
         global pato, drone, patosCatalogados
@@ -268,6 +273,11 @@ def Perdeu(razao):
         case "Arregou":
             print('Você se demitiu?...')
             print('É... Seu superior disse que você era muito medroso para olhar para um pato mesmo que do outro lado do mundo...')
+        case "Foi covarde":
+            print(f'\n{yellow}Se fosse para pular patos, teríamos chamado um canguru primordial{white}.')
+            print('Está demitido!')
+            print('...')
+            print(f'Isto é, {red}você perdeu!{white}')
 
     sys.exit()
 # Programa rodando
