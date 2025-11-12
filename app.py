@@ -204,6 +204,8 @@ def EscolherCidade(listaCidades):
         cidade3 = choice(listaCidades)
         cidade4 = choice(listaCidades)
 
+    if len(listaCidades) <= 10:
+        Venceu()
 
     print(f'{divisao}\n>> Cidade atual: {green}{cidade}{white}')
     
@@ -227,7 +229,7 @@ def EscolherCidade(listaCidades):
             continue
 
         if escolha == -1:
-            break
+            Perdeu('Arregou')
         if escolha < 1 or escolha > 5:
             print('>> Você digitou um valor inválido, tente novamente.\n')
 
@@ -253,12 +255,26 @@ def EscolherCidade(listaCidades):
             cidade = cidade
             ExibirPatosCatalogados()
     
+def Venceu():
+    print('Issoo!!! Você foi o primeiro humano a conseguir catalogar todos os patos primordiais no mundo! Pelo seu trabalho, agora sabemos exatamente onde estão os patos primordiais e onde devemos lançar nossas ogivas nucleares...')
+    print(f'Patos catalogados: {len(patosCatalogados)}')
+    print(f'Drones destruídos: {5 - len(nomesDrones)}')
+    sys.exit()
 
+def Perdeu(razao):
+    match razao:
+        case "Sem drones":
+            print('Não! Não!! Não!!! ... Os drones de catalogação foram destruídos... Você foi expulso do governo e o mundo está em crise... Você já era.')
+        case "Arregou":
+            print('Você se demitiu?...')
+            print('É... Seu superior disse que você era muito medroso para olhar para um pato mesmo que do outro lado do mundo...')
+
+    sys.exit()
 # Programa rodando
 
 print('\nOlá soldado!')
 print(f'Esse é o seu drone: {green}{drone["codigo"]}{white}, você tem direito a mais {len(nomesDrones) - 1} drones.')
 print('Sua missão é catalogar patos primordiais. Esse mundo está cheio deles, mas você tem que encontrá-los.')
 
-while escolha != -1:
-    EscolherCidade(listaCidades)
+while True:
+    EscolherCidade(nomesCidades)
