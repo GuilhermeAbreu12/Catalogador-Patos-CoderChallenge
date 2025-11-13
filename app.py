@@ -36,6 +36,7 @@ escolha = 0
 exibiu = False
 venceu = False
 patosPulados = 0
+pontuacao = 0
 
 def DetectarPatos():
     def CriarPato():
@@ -67,7 +68,30 @@ def DetectarPatos():
         print(choice(frasesProvocar))
         
         def DroneAtacado(dano):
-            global drone, nomesDrones
+            global drone, nomesDrones, pontuacao
+
+            # Cadastrar ranking
+            if dano <= 10:
+                pato['ranking'] = 'fofucho'
+                pontuacao += 5
+            elif dano < 20:
+                pato['ranking'] = 'pinscher'
+                pontuacao += 10
+            elif dano < 40:
+                pato['ranking'] = 'pequena ameaça'
+                pontuacao += 20
+            elif dano < 60:
+                pato['ranking'] = 'ameaça média'
+                pontuacao += 40
+            elif dano < 80:
+                pato['ranking'] = 'grande ameaça'
+                pontuacao += 60
+            elif dano < 90:
+                pato['ranking'] = 'máquina mortífera'
+                pontuacao += 100
+            else:
+                pato['ranking'] = 'destruidor de mundos'
+                pontuacao += 200
 
             drone['saude'] -= dano
             if drone['saude'] <= 0: # Drone destruído
@@ -95,9 +119,11 @@ def DetectarPatos():
         CatalogarPato()
     
     def AproximarPato():
-        global pato
+        global pato, pontuacao
         # Coletar as Bmp
         print(choice(frasesAproximar)) # pega uma aleatória
+        pato['ranking'] = 'inofensivo'
+        pontuacao += 2
         pato['bpm'] = randint(1, 200) # Número aleatório entre 1 e 200
         print('\nBpm coletadas')
         CatalogarPato()
@@ -125,6 +151,7 @@ def DetectarPatos():
         print('\nPato catalogado.')
         print(divisao)
         print(f'Nome pato: {pato["nome"]}')         
+        print(f'Ranking: {pato["ranking"]}')
         print(f'Status: {pato["status"]}')
         print(f'Bpm: {pato["bpm"]}')
         print(f'Altura: {pato["altura"]}')
@@ -133,10 +160,12 @@ def DetectarPatos():
         print(f'Superpoder: {pato["superpoder"]}')
         print(f'Código do drone: {drone["codigo"]}')
         print(f'Nacionalidade do drone: {drone["nacionalidade"]}')
+        print(f'Pontuação: {pontuacao}')
         print(divisao)
 
         novoPatoCatalogado = {}
         novoPatoCatalogado['nome'] = pato['nome']
+        novoPatoCatalogado['ranking'] = pato['ranking']
         novoPatoCatalogado['status'] = pato['status']
         novoPatoCatalogado['bpm'] = pato['bpm']
         novoPatoCatalogado['altura'] = pato['altura']
@@ -262,8 +291,9 @@ def EscolherCidade(listaCidades):
     
 def Venceu():
     print('Issoo!!! Você foi o primeiro humano a conseguir catalogar todos os patos primordiais no mundo! Pelo seu trabalho, agora sabemos exatamente onde estão os patos primordiais e onde devemos lançar nossas ogivas nucleares...')
-    print(f'Patos catalogados: {len(patosCatalogados)}')
-    print(f'Drones destruídos: {5 - len(nomesDrones)}')
+    print(f'{green}Patos catalogados:{white} {len(patosCatalogados)}')
+    print(f'{green}Drones destruídos:{white} {5 - len(nomesDrones)}')
+    print(f'{green}Pontuação:{white} {pontuacao}')
     sys.exit()
 
 def Perdeu(razao):
