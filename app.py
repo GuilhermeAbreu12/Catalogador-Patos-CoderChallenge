@@ -8,11 +8,14 @@ from nomes import nomesDrones
 from nomes import nomesPaises
 from random import *
 from cores import *
+from time import sleep
 # Variáveis e funções iniciais
+timeSleep = .5
 
 pato = {}
 pato['bpm'] = 'não identificado'
 pato['superpoder'] = 'não identificado'
+
 def ZerarPato():
     global pato
     pato = {}
@@ -48,12 +51,14 @@ def DetectarPatos():
 
         # Altura e peso do Pato
         # Se o país do drone for os EUA, converte de pés e libras para cm e g
-        if drone['nacionalidade'] == 'Estados Unidos':
+        def ConverterMedidas():
             patoAlturaAmericana = round(uniform(3.00, 13.00), 2) # Pés
             pato['altura'] = f'{patoAlturaAmericana * 30.48} cm' # cm
 
             patoPesoAmericano = randint(4, 14) # Libra
             pato['peso'] = f'{patoPesoAmericano * 453.592} gramas' # gramas
+        if drone['nacionalidade'] == 'Estados Unidos':
+            ConverterMedidas()
         else:
             pato['altura'] = f'{randint(91, 396)} cm'
             pato['peso'] = f'{randint(1814, 6350)} gramas'
@@ -66,7 +71,7 @@ def DetectarPatos():
         global pato
         # Mensagem e efeitos de fazer isso
         print(choice(frasesProvocar))
-        
+        sleep(timeSleep)
         def DroneAtacado(dano):
             global drone, nomesDrones, pontuacao
 
@@ -109,6 +114,7 @@ def DetectarPatos():
                     Perdeu('Sem drones')
             else: # Drone continua
                 print('Drone atacado pelo pato...')
+                sleep(timeSleep)
                 print(f'Saúde do seu drone: {drone["saude"]}%')
 
         DroneAtacado(randint(1, 100))
@@ -122,10 +128,12 @@ def DetectarPatos():
         global pato, pontuacao
         # Coletar as Bmp
         print(choice(frasesAproximar)) # pega uma aleatória
+        sleep(timeSleep)
         pato['ranking'] = 'inofensivo'
         pontuacao += 2
         pato['bpm'] = randint(1, 200) # Número aleatório entre 1 e 200
         print('\nBpm coletadas')
+        sleep(timeSleep)
         CatalogarPato()
 
     def PatoEncontrado():
@@ -137,6 +145,7 @@ def DetectarPatos():
 
         if aproximar == 'S' or aproximar == 's':
             print(f"Drone se aproxima do pato que está {pato['status']}...")
+            sleep(timeSleep)
             if pato['status'] == 'desperto':
                 ProvocarPato()
             else:
